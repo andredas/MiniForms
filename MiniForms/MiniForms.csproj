@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3D6E72FA-C55E-4338-93AB-48C252B08324}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MiniForms</RootNamespace>
+    <AssemblyName>MiniForms</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MessagingToolkit.Barcode">
+      <HintPath>..\packages\MessagingToolkit.1.8.1.0\lib\net45\x64\MessagingToolkit.Barcode.dll</HintPath>
+    </Reference>
+    <Reference Include="MessagingToolkit.Core">
+      <HintPath>..\packages\MessagingToolkit.1.8.1.0\lib\net45\x64\MessagingToolkit.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="MessagingToolkit.MMS">
+      <HintPath>..\packages\MessagingToolkit.1.8.1.0\lib\net45\x64\MessagingToolkit.MMS.dll</HintPath>
+    </Reference>
+    <Reference Include="MessagingToolkit.Pdu">
+      <HintPath>..\packages\MessagingToolkit.1.8.1.0\lib\net45\x64\MessagingToolkit.Pdu.dll</HintPath>
+    </Reference>
+    <Reference Include="MessagingToolkit.QRCode">
+      <HintPath>..\packages\MessagingToolkit.QRCode.1.3.0\lib\MessagingToolkit.QRCode.dll</HintPath>
+    </Reference>
+    <Reference Include="MessagingToolkit.UI">
+      <HintPath>..\packages\MessagingToolkit.1.8.1.0\lib\net45\x64\MessagingToolkit.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="MessagingToolkit.Wap">
+      <HintPath>..\packages\MessagingToolkit.1.8.1.0\lib\net45\x64\MessagingToolkit.Wap.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\MessagingToolkit.1.8.1.0\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interfaces\IUserRepository.cs" />
+    <Compile Include="Login\DiaLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\DiaLogin.Designer.cs">
+      <DependentUpon>DiaLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\ModuleDetail.cs" />
+    <Compile Include="Modules\NFC\DiaNfc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\NFC\DiaNfc.Designer.cs">
+      <DependentUpon>DiaNfc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\NFC\DiaReadNfc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\NFC\DiaReadNfc.Designer.cs">
+      <DependentUpon>DiaReadNfc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\NFC\Nfc.cs" />
+    <Compile Include="Modules\QRcode\diaQRcode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\QRcode\diaQRcode.Designer.cs">
+      <DependentUpon>diaQRcode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\QRcode\QRcode.cs" />
+    <Compile Include="Modules\QRcode\QrCodeModule.cs" />
+    <Compile Include="Modules\VoiceRec\diaVoiceRec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\VoiceRec\diaVoiceRec.Designer.cs">
+      <DependentUpon>diaVoiceRec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\FileRepository.cs" />
+    <Compile Include="Repository\HardcodedRepository.cs" />
+    <Compile Include="Services\Arduinoreaader.cs" />
+    <Compile Include="Services\AuthericationService.cs" />
+    <Compile Include="Modules\Email\diaEmail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Email\diaEmail.Designer.cs">
+      <DependentUpon>diaEmail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Email\Email.cs" />
+    <Compile Include="Modules\FileIn\DiaFileIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\FileIn\DiaFileIn.Designer.cs">
+      <DependentUpon>DiaFileIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\FileOut\DiaFileOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\FileOut\DiaFileOut.Designer.cs">
+      <DependentUpon>DiaFileOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\NetworkIn\DiaNetworkIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\NetworkIn\DiaNetworkIn.Designer.cs">
+      <DependentUpon>DiaNetworkIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\NetworkIn\NetworkIn.cs" />
+    <Compile Include="Modules\StringReplacer\DiaStringReplacer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\StringReplacer\DiaStringReplacer.Designer.cs">
+      <DependentUpon>DiaStringReplacer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\textToSpeech\DiatextToSpeech.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\textToSpeech\DiatextToSpeech.Designer.cs">
+      <DependentUpon>DiatextToSpeech.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\textToSpeech\TextToSpeech.cs" />
+    <Compile Include="Process\ProcessRunner.cs" />
+    <Compile Include="Process\ProcessInstance.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\IModule.cs" />
+    <Compile Include="Interfaces\IModuleDetail.cs" />
+    <Compile Include="Modules\StringReplacer\StringReplacer.cs" />
+    <Compile Include="Modules\FileOut\FileOut.cs" />
+    <Compile Include="Modules\FileIn\FileIn.cs" />
+    <Compile Include="ModuleLoader\HardCodeLoader.cs" />
+    <Compile Include="Interfaces\IModuleLoader.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Interfaces\IUser.cs" />
+    <Compile Include="UnitTest\ArduinoTest.cs" />
+    <Compile Include="SettingsLoader.cs" />
+    <Compile Include="UnitTest\HttpTest.cs" />
+    <Compile Include="UnitTest\SettingsTest.cs" />
+    <Compile Include="UnitTest\SwapTest.cs" />
+    <Compile Include="UnitTest\TestCase.cs" />
+    <Compile Include="UnitTest\UserTest.cs" />
+    <Compile Include="Login\User.cs" />
+    <Compile Include="Utils\FileNameUtils.cs" />
+    <EmbeddedResource Include="Login\DiaLogin.resx">
+      <DependentUpon>DiaLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\FileIn\DiaFileIn.resx">
+      <DependentUpon>DiaFileIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Modules\VoiceRec\VoiceRecognition.cs" />
+    <EmbeddedResource Include="Modules\QRcode\DiaQRcode.resx">
+      <DependentUpon>DiaQRcode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Email\diaEmail.resx">
+      <DependentUpon>diaEmail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\FileOut\DiaFileOut.resx">
+      <DependentUpon>DiaFileOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\NetworkIn\DiaNetworkIn.resx">
+      <DependentUpon>DiaNetworkIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\StringReplacer\DiaStringReplacer.resx">
+      <DependentUpon>DiaStringReplacer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\textToSpeech\DiatextToSpeech.resx">
+      <DependentUpon>DiatextToSpeech.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\VoiceRec\diaVoiceRec.resx">
+      <DependentUpon>diaVoiceRec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Modules\NFC\Arduino\functions.ino" />
+    <None Include="Modules\NFC\Arduino\NFC_Reader.ino" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
